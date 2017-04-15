@@ -1,0 +1,124 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Text",
+			"width": 1,
+			"row": {
+				"3": 5
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "3",
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Text",
+						"size": "regular",
+						"value": "datasources[\"Freeboard Alexa\"].message",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 9
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"value": "datasources[\"Freeboard Alexa\"].gauge.value",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 9
+			},
+			"col": {
+				"3": 3
+			},
+			"col_width": "1",
+			"widgets": [
+				{
+					"type": "google_map",
+					"settings": {
+						"lat": "76",
+						"lon": "15"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 9
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "indicator",
+					"settings": {
+						"value": "datasources[\"Freeboard Alexa\"].indicator.value",
+						"on_text": "datasources[\"Freeboard Alexa\"].indicator.on",
+						"off_text": "datasources[\"Freeboard Alexa\"].indicator.off"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": []
+		}
+	],
+	"datasources": [
+		{
+			"name": "Freeboard Alexa",
+			"type": "aws_iot_ws_mqtt",
+			"settings": {
+				"endpoint": "IOT_ENDPOINT",
+				"region": "IOT_REGION",
+				"accessKey": "FREEBOARD_AWS_ACCESS_KEY",
+				"secretKey": "FREEBOARD_AWS_SECRET_KEY",
+				"topics": [
+					{
+						"topicName": "IOT_TOPIC/text"
+					},
+					{
+						"topicName": "IOT_TOPIC/gauge"
+					},
+					{
+						"topicName": "IOT_TOPIC/indicator"
+					}
+				],
+				"name": "Freeboard Alexa"
+			}
+		}
+	],
+	"columns": 3
+}

@@ -1,0 +1,24 @@
+{
+  "name": "freeboard-alexa-skill",
+  "version": "1.0.0",
+  "description": "A sample Alexa Skill which interfaces with freeboard",
+  "scripts": {
+    "env": "cat bin/env.example > .env",
+    "create": "export $(cat .env | xargs) && sh bin/create_lambda.sh",
+    "update": "export $(cat .env | xargs) && sh bin/update_lambda.sh",
+    "dashboard": "export $(cat .env | xargs) && sh bin/dashboard.sh"
+  },
+  "keywords": [
+    "freeboard",
+    "aws",
+    "alexa",
+    "lambda",
+    "iot",
+    "internet of things"
+  ],
+  "author": "Jd Fiscus <me@iamfiscus.com> (http://iamfiscus.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "node-geocoder": "^3.16.0"
+  }
+}
