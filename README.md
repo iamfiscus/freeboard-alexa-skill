@@ -9,7 +9,7 @@
 ### Steps
 
 - Setup AWS IoT
-- Setup Google Maps API
+- [Setup Google Maps API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 - Setup Lambda Function
   - Create Role
   - Configure Environment Variables

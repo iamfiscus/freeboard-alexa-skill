@@ -19,6 +19,10 @@
   "author": "Jd Fiscus <me@iamfiscus.com> (http://iamfiscus.com/)",
   "license": "MIT",
   "dependencies": {
-    "node-geocoder": "^3.16.0"
+    "alexa-sdk": "^1.0.8",
+    "aws-sdk": "^2.41.0",
+    "giphy-api": "^1.2.5",
+    "node-geocoder": "^3.16.0",
+    "request": "^2.81.0"
   }
 }

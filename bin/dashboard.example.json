@@ -7,7 +7,7 @@
 			"title": "Text",
 			"width": 1,
 			"row": {
-				"3": 5
+				"3": 1
 			},
 			"col": {
 				"3": 1
@@ -17,7 +17,7 @@
 				{
 					"type": "text_widget",
 					"settings": {
-						"title": "Text",
+						"title": "",
 						"size": "regular",
 						"value": "datasources[\"Freeboard Alexa\"].message",
 						"animate": true
@@ -26,12 +26,15 @@
 			]
 		},
 		{
+			"title": "Guage",
 			"width": 1,
 			"row": {
-				"3": 9
+				"3": 5,
+				"5": 9
 			},
 			"col": {
-				"3": 1
+				"3": 3,
+				"5": 1
 			},
 			"col_width": 1,
 			"widgets": [
@@ -46,31 +49,15 @@
 			]
 		},
 		{
+			"title": "Indicator",
 			"width": 1,
 			"row": {
-				"3": 9
+				"3": 5,
+				"5": 9
 			},
 			"col": {
-				"3": 3
-			},
-			"col_width": "1",
-			"widgets": [
-				{
-					"type": "google_map",
-					"settings": {
-						"lat": "76",
-						"lon": "15"
-					}
-				}
-			]
-		},
-		{
-			"width": 1,
-			"row": {
-				"3": 9
-			},
-			"col": {
-				"3": 2
+				"3": 2,
+				"5": 2
 			},
 			"col_width": 1,
 			"widgets": [
@@ -78,22 +65,75 @@
 					"type": "indicator",
 					"settings": {
 						"value": "datasources[\"Freeboard Alexa\"].indicator.value",
-						"on_text": "datasources[\"Freeboard Alexa\"].indicator.on",
-						"off_text": "datasources[\"Freeboard Alexa\"].indicator.off"
+						"on_text": "datasources[\"Freeboard Alexa\"].indicator.on || 'On'",
+						"off_text": "datasources[\"Freeboard Alexa\"].indicator.off || 'Off'"
 					}
 				}
 			]
 		},
 		{
+			"title": "Image",
 			"width": 1,
 			"row": {
-				"3": 1
+				"3": 9,
+				"5": 9
+			},
+			"col": {
+				"3": 2,
+				"5": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "picture",
+					"settings": {
+						"src": "datasources[\"Freeboard Alexa\"].image.value",
+						"refresh": 10
+					}
+				}
+			]
+		},
+		{
+			"title": "Pointer",
+			"width": 1,
+			"row": {
+				"3": 13,
+				"5": 13
+			},
+			"col": {
+				"3": 3,
+				"5": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "pointer",
+					"settings": {
+						"direction": "datasources[\"Freeboard Alexa\"].pointer.value",
+						"value_text": "datasources[\"Freeboard Alexa\"].pointer.name"
+					}
+				}
+			]
+		},
+		{
+			"title": "Map",
+			"width": 1,
+			"row": {
+				"3": 5
 			},
 			"col": {
 				"3": 1
 			},
 			"col_width": 1,
-			"widgets": []
+			"widgets": [
+				{
+					"type": "google_map",
+					"settings": {
+						"lat": "datasources[\"Freeboard Alexa\"].map.latitude",
+						"lon": "datasources[\"Freeboard Alexa\"].map.longitude"
+					}
+				}
+			]
 		}
 	],
 	"datasources": [
@@ -114,6 +154,15 @@
 					},
 					{
 						"topicName": "IOT_TOPIC/indicator"
+					},
+					{
+						"topicName": "IOT_TOPIC/alexa/image"
+					},
+					{
+						"topicName": "IOT_TOPIC/alexa/map"
+					},
+					{
+						"topicName": "IOT_TOPIC/alexa/pointer"
 					}
 				],
 				"name": "Freeboard Alexa"
