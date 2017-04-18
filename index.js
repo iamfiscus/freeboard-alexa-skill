@@ -3,9 +3,7 @@
 /**
  * This sample demonstrates a sample skill built with Amazon Alexa Skills nodejs
  * skill development kit.
- * This sample supports multiple languages (en-US, en-GB, de-GB).
- * The Intent Schema, Custom Slot and Sample Utterances for this skill, as well
- * as testing instructions are located at https://github.com/alexa/skill-sample-nodejs-howto
+ * This sample interfaces with AWS IoT and the Freeboard.io IoT Dashboard
  **/
 
 'use strict';
@@ -22,7 +20,7 @@ const geocoder = NodeGeocoder({
     apiKey: process.env.GOOGLE_MAPS_API,
     formatter: 'json'
 });
-const giphy = require('giphy-api')('dc6zaTOxFJmzC'); // dc6zaTOxFJmzC
+const giphy = require('giphy-api')(process.env.GIPHY_API); // dc6zaTOxFJmzC
 
 const APP_ID = process.env.APP_ID;
 
@@ -65,12 +63,12 @@ const mapLatLong = function(address, callback) {
                 callback(result);
             });
         })
-    //     .catch(function(err) {
-    //         callback({
-    //             type: 'map',
-    //             message: 'ERROR_MESSAGE'
-    //         });
-    //     });
+        .catch(function(err) {
+            callback({
+                type: 'map',
+                message: 'ERROR_MESSAGE'
+            });
+        });
 }
 
 const giphyImage = function(search, callback) {
@@ -234,12 +232,7 @@ const languageStrings = {
             HELP_REPROMT: "You can say things like, what\'s the recipe, or you can say exit...Now, what can I help you with?",
             SUCCESS_MESSAGE: '%s was successfully sent to Freeboard.',
             ERROR_MESSAGE: 'There was a problem sending you request.',
-            STOP_MESSAGE: 'Goodbye!',
-            RECIPE_REPEAT_MESSAGE: 'Try saying repeat.',
-            RECIPE_NOT_FOUND_MESSAGE: "I\'m sorry, I currently do not know ",
-            RECIPE_NOT_FOUND_WITH_ITEM_NAME: 'the recipe for %s. ',
-            RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME: 'that recipe. ',
-            RECIPE_NOT_FOUND_REPROMPT: 'What else can I help with?',
+            STOP_MESSAGE: 'Goodbye!'
         },
     }
 };
