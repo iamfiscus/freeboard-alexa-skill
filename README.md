@@ -9,29 +9,16 @@
 
 ## Install
 
-For full step by step documentation follow the [install guide](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/INSTALL.md).
+For full step by step documentation follow the [install guide](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md).
 
 ### Steps
 
-- Setup Example
-- Setup AWS IoT
-- Setup Google Maps API
-- Setup Lambda Function
-  - Create Role
-  - Create Skill
-  - Configure Environment Variables
-  - Create Lambda Function
-  - Add Alexa Trigger
-- Setup Alexa Skill
-  - Create Alexa Skill
-  - Configure Lambda Function
-  - Configure Intent
-  - Configure Sample Utterances
-- Setup Freeboard
-  - Download
-  - Install AWS IoT Plugin
-  - Create Dashboard
-  - Load Dashboard
+1. [Setup Example](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-example)
+2. [Setup AWS IoT](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-aws-iot)
+3. [Setup Google Maps API](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-google-maps-api)
+4. [Setup Lambda Function](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-lambda-function)
+5. [Setup Alexa Skill](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-alexa-skill)
+6. [Setup Freeboard](https://github.com/iamfiscus/freeboard-alexa-skill/blob/master/docs/INSTALL.md#setup-freeboard)
 
 ## Result
 

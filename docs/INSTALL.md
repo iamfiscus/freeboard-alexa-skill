@@ -139,3 +139,13 @@ Next we need to setup a custom Alexa skill for the voice commands.
 ### Configure Lambda Function
 
 ![Configure Lambda](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-lambda.png "Configure Lambda")
+
+## Setup Freeboard
+
+### Download
+
+### Install AWS IoT Plugin
+
+### Create Dashboard
+
+### Load Dashboard
