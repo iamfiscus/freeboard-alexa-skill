@@ -23,7 +23,7 @@ This is to create an AWS IoT endpoint which all Freeboard data sources use via a
 
 ### Register Thing
 
-![Register Thing](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step1/create-thing.png "Register Thing")
+![Register Thing](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step1/register-thing.png "Register Thing")
 
 ### Add IoT Endpoint to ENV
 ![IoT Endpoint](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step1/thing-success.png "IoT Endpoint")
@@ -124,9 +124,9 @@ Next we need to setup a custom Alexa skill for the voice commands.
 
 ![Configure Skill](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-alexa-skill.png "Configure Skill")
 
-### Configure Intent
+### Configure Intents
 
-![Configure Intent](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-intent.png "Configure Intent")
+![Configure Intents](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-intents.png "Configure Intents")
 
 ### Configure Sample Utterances
 
