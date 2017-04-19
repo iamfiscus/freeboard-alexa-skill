@@ -12,7 +12,7 @@ The command creates your environment variable file which can be used to customiz
 
 ## Setup AWS IoT
 
-The purpose of this step is to create an AWS IoT endpoint which all Freeboard data sources use via a publish/subscribe model.
+The purpose of this step is to create an AWS IoT endpoint which all [Freeboard](https://github.com/Freeboard/freeboard) data sources use via a publish/subscribe model.
 
 ### Create Thing
 - Log in to the AWS Console
@@ -35,7 +35,7 @@ IOT_ENDPOINT=${IOT_ENDPOINT}
 
 ###### Optional
 All the variables below have default values. However, you can also change them if you'd like. Make sure there is no trailing slash on your Topic.
-- IoT Topic: the base part of the publish/subscribe model which freeboard uses to communicate through it's data source.
+- IoT Topic: the base part of the publish/subscribe model which [Freeboard](https://github.com/Freeboard/freeboard) uses to communicate through it's data source.
 - Giphy API: There is a voice command which gets an image from Giphy.
 
 ```
@@ -45,7 +45,7 @@ GIPHY_API=${GIPHY_API || 'dc6zaTOxFJmzC'}
 
 ## Setup Google Maps API
 
-In the Freeboard dashboard, there is a panel which has a  command that allows you to place a marker on a map by saying an address. The Lambda function uses the address as well as the Google Maps API to provide the Latitude and Longitude, which is needed for the maps panel.
+In the [Freeboard](https://github.com/Freeboard/freeboard) dashboard, there is a panel which has a  command that allows you to place a marker on a map by saying an address. The Lambda function uses the address as well as the Google Maps API to provide the Latitude and Longitude, which is needed for the maps panel.
 
 ### Create API Key
 [Get Google Maps API](https://developers.google.com/maps/documentation/javascript/get-api-key)
@@ -87,10 +87,10 @@ There is an NPM script to automate the creation of the Lambda function.  It exec
 
 The script does the following things:
 - Package everything for deployment
- - index.js
- - node_modules
- - package.json
- - .env
+  - index.js
+  - node_modules
+  - package.json
+  - .env
 - Create function
   - Upload .zip file
   - Variables assigned
@@ -139,26 +139,125 @@ Inside the intent are slots which are very similar to variables you need to defi
 
 ### Configure Custom Slots
 
+Here is where you create your custom slots values.
+
+LIST_OF_WORDS:
+```
+good morning
+line
+tea
+promises
+my phone number is 12345
+```
+
+ON_OFF:
+```
+on
+off
+```
+
 ![Configure Custom Slots](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-custom-slots.png "Configure Custom Slots")
 
 ** * There is a GUI skill builder beta version, which looks different **
 
 ### Configure Sample Utterances
+These are the phrases which Alexa will recognize to execute intents.
+Add these as your sample utterances.
+```
+GaugeIntent set gauge to {Gauge}
+GaugeIntent set gauge at {Gauge}
+ImageIntent find image of {Image}
+ImageIntent search image of {Image}
+ImageIntent find meme of {Image}
+ImageIntent search meme of {Image}
+IndicatorIntent label indicator on at {IndicatorOn}
+IndicatorIntent label indicator off at {IndicatorOff}
+IndicatorIntent label indicator on to {IndicatorOn}
+IndicatorIntent label indicator off to {IndicatorOff}
+IndicatorIntent turn indicator {Indicator}
+MapIntent place address at {Address}
+MapIntent place map at {Address}
+MapIntent set address at {Address}
+MapIntent set map at {Address}
+MapIntent set address to {Address}
+MapIntent set map to {Address}
+MessageIntent create message {Message}
+MessageIntent send message {Message}
+MessageIntent send text message {Message}
+PointerIntent set pointer name to {Name}
+PointerIntent set pointer to {Pointer}
+PointerIntent set pointer at {Pointer}
+```
 
 ![Configure Sample Utterances](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-utterances.png "Configure Sample Utterances")
 
 ** * There is a GUI skill builder beta version, which looks different **
 
 ### Configure Lambda Function
+At this point you need to configure your Alexa Skill to trigger the Lambda function. Locate the ARN of your Lambda function and save it in the Alexa developer portal.
+
+![Locate Lambda ARN](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/lambda-arn.png "Locate Lambda ARN")
+
 
 ![Configure Lambda](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-lambda.png "Configure Lambda")
 
 ## Setup Freeboard
 
+Lastly we need to setup [Freeboard](https://github.com/Freeboard/freeboard) which is an open source dashboard for IoT.
+
 ### Download
+Clone or download [Freeboard](https://github.com/Freeboard/freeboard#how-to-use)
 
 ### Install AWS IoT Plugin
+Change to the directory freeboard and install the plugin. [Plugin Documentation](https://github.com/iamfiscus/freeboard-aws-iot-ws-mqtt#install)
+```
+npm install -S freeboard-aws-iot-ws-mqtt
+```
+Modify the [index.html](https://github.com/iamfiscus/freeboard-aws-iot-ws-mqtt#html)
+
+Launch Freeboard
+```
+grunt
+```
 
 ### Create Dashboard
 
+There is an example dashboard which can be created to interact with the Alexa Skill. You must add your AWS credentials to your `./.env`. Then run the NPM script which executes a [bash script](https://github.com/iamfiscus/freeboard-alexa-skill/master/bin/dashboard.sh) to generate the example dashboard. ** Make sure you are in the Freeboard Alexa Skill folder **
+
+```shell
+npm run dashboard
+```
+
 ### Load Dashboard
+
+In order to generate the datasource and panels you need to load the `dashboard.json`.
+
+![Dashboard Init](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/dashboard-init.png "Dashboard Init")
+
+The `dashboard.json` creates the panels and datasource configuration.
+
+![Dashboard Loaded](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/dashboard-load.png "Dashboard Loaded")
+
+![Data Source](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/datasource.png "Data Source")
+
+## Test
+
+Let's test!!!
+
+![Enable Skill](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/enable-skill.png "Enable Skill")
+
+Command Examples:
+```
+text message {Message}
+set gauge at {Gauge}
+turn indicator {Indicator}
+set pointer to {Pointer}
+get image of {Image}
+place map at {Address}
+```
+
+![Test](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/test.png "Test")
+
+## Result
+
+![Result](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/result.png "Result")

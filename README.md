@@ -24,10 +24,14 @@ For full step by step documentation follow the [install guide](https://github.co
 
 Video
 
-Commands
-send message Hello World
-find image of Cats
-place map at Austin Texas
-set pointer to 90
-set gauge at 75
-turn indicator On
+Command Examples:
+```
+text message {Message}
+set gauge at {Gauge}
+turn indicator {Indicator}
+set pointer to {Pointer}
+get image of {Image}
+place map at {Address}
+```
+
+![Result](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/result.png "Result")
