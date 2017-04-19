@@ -133,7 +133,7 @@ Intents are like method handlers when the Lambda function executes it has the pa
 
 Inside the intent are slots which are very similar to variables you need to define name and type. There are Amazon built in slots, and custom slots which we will go over next.
 
-** * There is a GUI skill builder beta version, which looks different **
+** There is a GUI skill builder beta version, which looks different **
 
 ![Configure Intents](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-intents.png "Configure Intents")
 
@@ -158,7 +158,7 @@ off
 
 ![Configure Custom Slots](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-custom-slots.png "Configure Custom Slots")
 
-** * There is a GUI skill builder beta version, which looks different **
+** There is a GUI skill builder beta version, which looks different **
 
 ### Configure Sample Utterances
 These are the phrases which Alexa will recognize to execute intents.
@@ -191,7 +191,7 @@ PointerIntent set pointer at {Pointer}
 
 ![Configure Sample Utterances](https://github.com/iamfiscus/freeboard-alexa-skill/raw/master/docs/images/step4/configure-utterances.png "Configure Sample Utterances")
 
-** * There is a GUI skill builder beta version, which looks different **
+** There is a GUI skill builder beta version, which looks different **
 
 ### Configure Lambda Function
 At this point you need to configure your Alexa Skill to trigger the Lambda function. Locate the ARN of your Lambda function and save it in the Alexa developer portal.
