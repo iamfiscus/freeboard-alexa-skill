@@ -161,7 +161,7 @@ off
 **There is a GUI skill builder beta version, which looks different**
 
 ### Configure Sample Utterances
-These are the phrases which Alexa will recognize to execute intents.
+Below are the phrases which Alexa will recognize to execute intents.
 Add these as your sample utterances.
 ```
 GaugeIntent set gauge to {Gauge}
@@ -203,7 +203,7 @@ At this point you need to configure your Alexa Skill to trigger the Lambda funct
 
 ## Setup Freeboard
 
-Lastly we need to setup [Freeboard](https://github.com/Freeboard/freeboard) which is an open source dashboard for IoT.
+Lastly, we need to setup [Freeboard](https://github.com/Freeboard/freeboard) which is an open source dashboard for IoT.
 
 ### Download
 Clone or download [Freeboard](https://github.com/Freeboard/freeboard#how-to-use)
